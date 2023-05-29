@@ -1,0 +1,49 @@
+@mixin text-container-styles($subtitleSize, $titleSize, $textSize) {
+	.container {
+		width: 30vw;
+		margin-left: 7rem;
+		margin-top: 8rem;
+
+		.subtitle {
+			color: $textColor;
+			text-transform: uppercase;
+			font-size: $subtitleSize;
+			letter-spacing: 2px;
+			font-weight: 500;
+			margin-bottom: 1rem;
+		}
+
+		.title {
+			color: $mainColor;
+			font-family: "Source Serif Pro";
+			font-size: $titleSize;
+			margin-bottom: 1rem;
+		}
+
+		.text {
+			color: $textColor;
+			letter-spacing: 2px;
+			line-height: 1.7rem;
+			font-size: $textSize;
+			margin-bottom: 1.5rem;
+		}
+
+		.light {
+			color: $mainColor;
+			font-family: inherit;
+			background-color: white;
+			padding: 0.75rem 2rem;
+			font-size: 0.9rem;
+			font-weight: 500;
+			border: none;
+			border-radius: 10px;
+			transition: all 250ms;
+
+			&:hover {
+				color: white;
+				background-color: $mainColor;
+				font-weight: 700;
+			}
+		}
+	}
+}

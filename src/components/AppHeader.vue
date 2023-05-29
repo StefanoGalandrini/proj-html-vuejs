@@ -75,6 +75,7 @@ export default {
 
 <style lang="scss" scoped>
 @use "../assets/styles/general.scss" as *;
+@import "../assets/styles/mixin.scss";
 
 header {
 	height: 90vh;
@@ -125,52 +126,55 @@ nav {
 
 // Hero Text
 
-.container {
-	width: 30vw;
-	margin-left: 7rem;
-	margin-top: 8rem;
+@include text-container-styles(0.8rem, 3.3rem, 1rem);
 
-	.subtitle {
-		color: $textColor;
-		text-transform: uppercase;
-		font-size: 0.8rem;
-		letter-spacing: 2px;
-		font-weight: 500;
-		margin-bottom: 1rem;
-	}
+// .container {
+// 	width: 30vw;
+// 	margin-left: 7rem;
+// 	margin-top: 8rem;
 
-	.title {
-		color: $mainColor;
-		font-family: "Source Serif Pro";
-		font-size: 3.3rem;
-		margin-bottom: 1rem;
-	}
+// 	.subtitle {
+// 		color: $textColor;
+// 		text-transform: uppercase;
+// 		font-size: 0.8rem;
+// 		letter-spacing: 2px;
+// 		font-weight: 500;
+// 		margin-bottom: 1rem;
+// 	}
 
-	.text {
-		color: $textColor;
-		letter-spacing: 2px;
-		line-height: 1.7rem;
-		margin-bottom: 1.5rem;
-	}
+// 	.title {
+// 		color: $mainColor;
+// 		font-family: "Source Serif Pro";
+// 		font-size: 3.3rem;
+// 		margin-bottom: 1rem;
+// 	}
 
-	.light {
-		color: $mainColor;
-		font-family: inherit;
-		background-color: white;
-		padding: 0.75rem 2rem;
-		font-size: 0.9rem;
-		font-weight: 500;
-		border: none;
-		border-radius: 10px;
-		transition: all 250ms;
+// 	.text {
+// 		color: $textColor;
+// 		font-size: 1rem;
+// 		letter-spacing: 2px;
+// 		line-height: 1.7rem;
+// 		margin-bottom: 1.5rem;
+// 	}
 
-		&:hover {
-			color: white;
-			background-color: $mainColor;
-			font-weight: 700;
-		}
-	}
-}
+// 	.light {
+// 		color: $mainColor;
+// 		font-family: inherit;
+// 		background-color: white;
+// 		padding: 0.75rem 2rem;
+// 		font-size: 0.9rem;
+// 		font-weight: 500;
+// 		border: none;
+// 		border-radius: 10px;
+// 		transition: all 250ms;
+
+// 		&:hover {
+// 			color: white;
+// 			background-color: $mainColor;
+// 			font-weight: 700;
+// 		}
+// 	}
+// }
 
 // scroll button
 .back-to-top {
