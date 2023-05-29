@@ -1,8 +1,6 @@
 @mixin text-container-styles($subtitleSize, $titleSize, $textSize) {
 	.container {
-		width: 30vw;
-		margin-left: 7rem;
-		margin-top: 8rem;
+		grid-area: text;
 
 		.subtitle {
 			color: $textColor;
@@ -27,23 +25,37 @@
 			font-size: $textSize;
 			margin-bottom: 1.5rem;
 		}
+	}
+}
 
-		.light {
-			color: $mainColor;
-			font-family: inherit;
-			background-color: white;
-			padding: 0.75rem 2rem;
-			font-size: 0.9rem;
-			font-weight: 500;
-			border: none;
-			border-radius: 10px;
-			transition: all 250ms;
+button {
+	font-family: inherit;
+	padding: 0.75rem 2rem;
+	font-size: 0.9rem;
+	font-weight: 500;
+	border: none;
+	border-radius: 10px;
+	transition: all 250ms;
+}
 
-			&:hover {
-				color: white;
-				background-color: $mainColor;
-				font-weight: 700;
-			}
-		}
+button.light {
+	color: $mainColor;
+	background-color: white;
+
+	&:hover {
+		color: white;
+		background-color: $mainColor;
+		font-weight: 700;
+	}
+}
+
+button.dark {
+	color: white;
+	background-color: $mainColor;
+
+	&:hover {
+		background-color: #dddddd;
+		color: $mainColor;
+		font-weight: 700;
 	}
 }

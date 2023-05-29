@@ -52,15 +52,17 @@ export default {
 		</nav>
 
 		<!-- Hero Text -->
-		<div class="container">
-			<h4 class="subtitle">Fresh & Tasty Bakery Every Day</h4>
-			<h1 class="title">The perfect Fresh Bread</h1>
-			<p class="text">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-				nesciunt eum voluptates harum ipsam voluptate? Magnam commodi molestiae
-				perferendis.
-			</p>
-			<button class="light">Explore our products</button>
+		<div class="wrapper">
+			<div class="container">
+				<h4 class="subtitle">Fresh & Tasty Bakery Every Day</h4>
+				<h2 class="title">The perfect Fresh Bread</h2>
+				<p class="text">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
+					nesciunt eum voluptates harum ipsam voluptate? Magnam commodi
+					molestiae perferendis.
+				</p>
+				<button class="light">Explore our products</button>
+			</div>
 		</div>
 
 		<!-- Pulsante "sticky" per tornare alla "home" -->
@@ -79,7 +81,6 @@ export default {
 
 header {
 	height: 90vh;
-	background-color: gold;
 	background-image: url("../assets/images/hero-header-bakery.jpg");
 	background-repeat: no-repeat;
 	background-position: bottom left;
@@ -125,56 +126,12 @@ nav {
 }
 
 // Hero Text
-
+.wrapper {
+	width: 30vw;
+	margin-left: 7rem;
+	margin-top: 8rem;
+}
 @include text-container-styles(0.8rem, 3.3rem, 1rem);
-
-// .container {
-// 	width: 30vw;
-// 	margin-left: 7rem;
-// 	margin-top: 8rem;
-
-// 	.subtitle {
-// 		color: $textColor;
-// 		text-transform: uppercase;
-// 		font-size: 0.8rem;
-// 		letter-spacing: 2px;
-// 		font-weight: 500;
-// 		margin-bottom: 1rem;
-// 	}
-
-// 	.title {
-// 		color: $mainColor;
-// 		font-family: "Source Serif Pro";
-// 		font-size: 3.3rem;
-// 		margin-bottom: 1rem;
-// 	}
-
-// 	.text {
-// 		color: $textColor;
-// 		font-size: 1rem;
-// 		letter-spacing: 2px;
-// 		line-height: 1.7rem;
-// 		margin-bottom: 1.5rem;
-// 	}
-
-// 	.light {
-// 		color: $mainColor;
-// 		font-family: inherit;
-// 		background-color: white;
-// 		padding: 0.75rem 2rem;
-// 		font-size: 0.9rem;
-// 		font-weight: 500;
-// 		border: none;
-// 		border-radius: 10px;
-// 		transition: all 250ms;
-
-// 		&:hover {
-// 			color: white;
-// 			background-color: $mainColor;
-// 			font-weight: 700;
-// 		}
-// 	}
-// }
 
 // scroll button
 .back-to-top {
