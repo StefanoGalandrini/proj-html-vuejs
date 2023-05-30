@@ -6,25 +6,42 @@ export default {
 			hoverWed: false,
 		};
 	},
+
+	methods: {
+		handleMouseOver(target) {
+			if (target === "corp") {
+				this.hoverCorp = true;
+			} else if (target === "wed") {
+				this.hoverWed = true;
+			}
+		},
+		handleMouseOut(target) {
+			if (target === "corp") {
+				this.hoverCorp = false;
+			} else if (target === "wed") {
+				this.hoverWed = false;
+			}
+		},
+	},
 };
 </script>
 
 <template>
 	<div class="container">
-		<h4 class="subtitle">Corporate &Weddings</h4>
+		<h4 class="subtitle">Corporate & Weddings</h4>
 		<h2 class="title">Baking Special Moments</h2>
 		<div class="pictures">
 			<div
 				class="corp"
-				@mouseover="this.hoverCorp = true"
-				@mouseout="this.hoverCorp = false">
+				@mouseover="this.handleMouseOver('corp')"
+				@mouseleave="this.handleMouseOut('corp')">
 				<img
-					v-if="!this.hoverCorp"
+					v-show="!this.hoverCorp"
 					class="pic-corp"
 					src="../assets/images/corporate-bg.jpg"
 					alt="" />
 
-				<div v-if="this.hoverCorp" class="corp-hover">
+				<div v-show="this.hoverCorp" class="corp-hover">
 					<img
 						class="pic-corp-hover"
 						src="../assets/images/corporate-hover-bg.jpg"
@@ -39,15 +56,15 @@ export default {
 
 			<div
 				class="wed"
-				@mouseover="this.hoverWed = true"
-				@mouseout="this.hoverWed = false">
+				@mouseover="this.handleMouseOver('wed')"
+				@mouseleave="this.handleMouseOut('wed')">
 				<img
-					v-if="!this.hoverWed"
+					v-show="!this.hoverWed"
 					class="pic-wed"
 					src="../assets/images/wedding-bg.jpg"
 					alt="" />
 
-				<div v-if="this.hoverWed" class="wed-hover">
+				<div v-show="this.hoverWed" class="wed-hover">
 					<img
 						class="pic-wed-hover"
 						src="../assets/images/wedding-hover-bg.jpg"
