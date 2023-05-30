@@ -140,6 +140,7 @@ export default {
 	grid-template-areas: "text carousel";
 	gap: 5rem;
 }
+
 @include text-container-styles(0.7rem, 2.1rem, 0, $textColor, $mainColor);
 
 .carousel-container {

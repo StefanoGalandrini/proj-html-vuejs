@@ -69,4 +69,52 @@ export const store = reactive({
 			price: "$14,50 - $30,00",
 		},
 	],
+
+	locations: [
+		{
+			city: "New York",
+			phone: "1.800.458.556",
+			hours: "9:00 AM - 6:00 PM",
+			url: "new-york-bk-800x530.jpg",
+			bgColor: "#f1f9fb",
+		},
+		{
+			city: "London",
+			phone: "1.800.458.556",
+			hours: "9:00 AM - 6:00 PM",
+			url: "london-bk-800x530.jpg",
+			bgColor: "#faf3e3",
+		},
+	],
+
+	photos: [
+		{
+			id: 1,
+			url: "social-1.jpg",
+		},
+		{
+			id: 2,
+			url: "social-2.jpg",
+		},
+		{
+			id: 3,
+			url: "social-3.jpg",
+		},
+		{
+			id: 4,
+			url: "social-4.jpg",
+		},
+		{
+			id: 5,
+			url: "social-5.jpg",
+		},
+		{
+			id: 6,
+			url: "social-6.jpg",
+		},
+		{
+			id: 7,
+			url: "social-7.jpg",
+		},
+	],
 });

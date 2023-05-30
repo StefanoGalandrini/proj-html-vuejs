@@ -1,13 +1,18 @@
 <script>
+import {store} from "./store";
+
 import AppHeader from "./components/AppHeader.vue";
 import AppCarousel from "./components/AppCarousel.vue";
 import AppMoments from "./components/AppMoments.vue";
 import AppCarouselSmall from "./components/AppCarouselSmall.vue";
 import AppCards from "./components/AppCards.vue";
+import AppLocations from "./components/AppLocations.vue";
+import AppSocials from "./components/AppSocials.vue";
 
 export default {
 	data() {
 		return {
+			store,
 			cardsArray: [
 				{
 					title: `“Finally found an alternative to the mass produced products. Something that incorporates real organic ingredients, nutrient dense wellness while promoting sustainability and activity”.`,
@@ -47,11 +52,21 @@ export default {
 		AppMoments,
 		AppCarouselSmall,
 		AppCards,
+		AppLocations,
+		AppSocials,
 	},
 
 	computed: {
 		filteredCards() {
 			return this.cardsArray.filter((card, index) => index !== 0);
+		},
+
+		locations() {
+			return store.locations;
+		},
+
+		photos() {
+			return store.photos;
 		},
 	},
 };
@@ -84,6 +99,10 @@ export default {
 			<p class="text">{{ cardsArray[0].text }}</p>
 		</div>
 	</div>
+
+	<AppLocations :locations="locations" />
+
+	<AppSocials :photos="photos" />
 </template>
 
 <style lang="scss">
@@ -91,7 +110,7 @@ export default {
 
 .grid-container {
 	width: 88vw;
-	height: 300vh;
+	height: 250vh;
 	margin: 11.5rem auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
