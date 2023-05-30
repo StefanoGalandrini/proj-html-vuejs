@@ -18,10 +18,10 @@ export default {
 			if (index === 4) return "square5";
 			if (index === 5) return "square6";
 		},
-	},
 
-	mounted() {
-		console.log(this.photos);
+		getUrl(part) {
+			return `/src/assets/images/${part.url}`;
+		},
 	},
 };
 </script>
@@ -29,13 +29,23 @@ export default {
 <template>
 	<div class="grid-container">
 		<div
-			v-for="(item, index) in items"
-			:key="index"
-			:class="getClassForIndex(index)">
-			<!-- contenuto dell'elemento -->
+			v-for="(photo, index) in photos"
+			:key="photo.id"
+			:class="getClassForIndex(index)"
+			class="grid-item">
+			<div class="socials">
+				<img :src="getUrl(photo)" alt="" />
+			</div>
 		</div>
 		<div class="rectangle">
-			<!-- contenuto dell'elemento più grande -->
+			<div class="container">
+				<h4 class="subtitle">made for sharing</h4>
+				<h2 class="title">Let's stay in touch</h2>
+				<button class="dark">
+					<font-awesome-icon icon="fa-brands fa-instagram" />
+					<span> Follow Us</span>
+				</button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -47,16 +57,35 @@ export default {
 @include text-container-styles(0.7rem, 2.1rem, 0, $textColor, $mainColor);
 
 .grid-container {
+	width: 88vw;
+	height: 90vh;
+	padding: 10rem 0;
+	margin: 20rem auto;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(2, 1fr);
 	grid-template-areas:
 		"square1 rectangle rectangle square2"
 		"square3 square4 square5 square6";
+	gap: 1.5rem;
 }
 
 .grid-item {
-	/* Stili comuni per tutti gli elementi della griglia */
+	width: 100%;
+	padding: 0;
+	border: none;
+}
+
+.socials {
+	max-width: 100%;
+	overflow: hidden;
+
+	img {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		object-fit: cover;
+		object-position: center top;
+	}
 }
 
 .square1 {
@@ -65,6 +94,15 @@ export default {
 
 .rectangle {
 	grid-area: rectangle;
+	background-color: #f8f1f3;
+
+	.container {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }
 
 .square2 {
