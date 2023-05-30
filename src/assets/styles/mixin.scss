@@ -1,4 +1,10 @@
-@mixin text-container-styles($subtitleSize, $titleSize, $textSize) {
+@mixin text-container-styles(
+	$subtitleSize,
+	$titleSize,
+	$textSize,
+	$subTitleColor,
+	$titleColor
+) {
 	.container {
 		grid-area: text;
 

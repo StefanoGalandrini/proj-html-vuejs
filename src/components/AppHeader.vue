@@ -132,7 +132,7 @@ nav {
 	margin-left: 7rem;
 	margin-top: 8rem;
 }
-@include text-container-styles(0.8rem, 3.3rem, 1rem);
+@include text-container-styles(0.8rem, 3.3rem, 1rem, $textColor, $mainColor);
 
 // scroll button
 .back-to-top {
