@@ -6,7 +6,7 @@ export default {
 		return {
 			store,
 			activeItem: 0,
-			isScrolled: true,
+			isScrolled: false,
 		};
 	},
 
@@ -14,6 +14,7 @@ export default {
 		scrollToTop() {
 			window.scrollTo({top: 0, behavior: "smooth"});
 		},
+
 		handleScroll() {
 			this.isScrolled = window.scrollY > 0;
 		},

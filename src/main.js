@@ -11,9 +11,16 @@ import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import {
 	faCartShopping,
 	faArrowUpFromBracket,
+	faChevronRight,
+	faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* add icons to the library */
-library.add(faCartShopping, faArrowUpFromBracket);
+library.add(
+	faCartShopping,
+	faArrowUpFromBracket,
+	faChevronRight,
+	faChevronLeft,
+);
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");
