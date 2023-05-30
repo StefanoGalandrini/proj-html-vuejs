@@ -17,7 +17,7 @@ export default {
 			<div
 				class="corp"
 				@mouseover="this.hoverCorp = true"
-				@mouseleave="this.hoverCorp = false">
+				@mouseout="this.hoverCorp = false">
 				<img
 					v-if="!this.hoverCorp"
 					class="pic-corp"
@@ -40,7 +40,7 @@ export default {
 			<div
 				class="wed"
 				@mouseover="this.hoverWed = true"
-				@mouseleave="this.hoverWed = false">
+				@mouseout="this.hoverWed = false">
 				<img
 					v-if="!this.hoverWed"
 					class="pic-wed"
