@@ -15,12 +15,15 @@ import {
 	faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
+import {faInstagram} from "@fortawesome/free-brands-svg-icons";
+
 /* add icons to the library */
 library.add(
 	faCartShopping,
 	faArrowUpFromBracket,
 	faChevronRight,
 	faChevronLeft,
+	faInstagram,
 );
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");

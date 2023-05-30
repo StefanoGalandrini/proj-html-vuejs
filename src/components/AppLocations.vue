@@ -65,6 +65,7 @@ export default {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin-top: 4rem;
 
 	.card {
 		width: 100%;
@@ -76,7 +77,7 @@ export default {
 
 		h3 {
 			color: $mainColor;
-			margin: 1rem 0;
+			margin: 2rem 0;
 			font-family: "Source Serif Pro";
 			font-size: 2rem;
 		}

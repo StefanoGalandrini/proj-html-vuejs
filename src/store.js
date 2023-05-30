@@ -101,20 +101,16 @@ export const store = reactive({
 			url: "social-3.jpg",
 		},
 		{
-			id: 4,
-			url: "social-4.jpg",
-		},
-		{
 			id: 5,
 			url: "social-5.jpg",
 		},
 		{
-			id: 6,
-			url: "social-6.jpg",
+			id: 4,
+			url: "social-4.jpg",
 		},
 		{
-			id: 7,
-			url: "social-7.jpg",
+			id: 6,
+			url: "social-6.jpg",
 		},
 	],
 });
