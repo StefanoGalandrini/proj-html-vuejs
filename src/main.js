@@ -15,7 +15,12 @@ import {
 	faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
-import {faInstagram} from "@fortawesome/free-brands-svg-icons";
+import {
+	faInstagram,
+	faTwitter,
+	faFacebookF,
+	faPinterestP,
+} from "@fortawesome/free-brands-svg-icons";
 
 /* add icons to the library */
 library.add(
@@ -24,6 +29,9 @@ library.add(
 	faChevronRight,
 	faChevronLeft,
 	faInstagram,
+	faTwitter,
+	faFacebookF,
+	faPinterestP,
 );
 
 createApp(App).component("font-awesome-icon", FontAwesomeIcon).mount("#app");

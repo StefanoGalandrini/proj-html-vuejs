@@ -67,6 +67,29 @@ export default {
 				</form>
 			</div>
 		</div>
+
+		<!-- Copyright and Socials icons -->
+
+		<div class="copyright">
+			<p>
+				© Copyright 2012 - 2020 | Avada Theme by ThemeFusion ! All Rights
+				Reserved ! Powered by WordPress
+			</p>
+			<div class="icons">
+				<a href="">
+					<font-awesome-icon icon="fa-brands fa-instagram" />
+				</a>
+				<a href="">
+					<font-awesome-icon icon="fa-brands fa-twitter" />
+				</a>
+				<a href="">
+					<font-awesome-icon icon="fa-brands fa-facebook-f" />
+				</a>
+				<a href="">
+					<font-awesome-icon icon="fa-brands fa-pinterest-p" />
+				</a>
+			</div>
+		</div>
 	</footer>
 </template>
 
@@ -115,12 +138,11 @@ footer {
 .footer-container {
 	font-family: "Raleway";
 	width: 100%;
-	height: 30vh;
+	height: 25vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding-inline: 3rem;
-	margin: 0;
 }
 
 .left-section,
@@ -232,5 +254,23 @@ nav {
 			margin-top: 0.5rem;
 		}
 	}
+}
+.copyright {
+	height: 3rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 3rem;
+	font-size: 0.8rem;
+	color: $textColor;
+	margin-bottom: 5rem;
+}
+
+.icons {
+	display: flex;
+	gap: 3rem;
+	color: $mainColor;
+	font-size: 1.3rem;
+	margin-left: 3rem;
 }
 </style>
