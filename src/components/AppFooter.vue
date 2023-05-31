@@ -3,6 +3,8 @@ export default {
 	data() {
 		return {
 			activeItem: 0,
+			showMessage: false,
+			cartItemCount: 2,
 		};
 	},
 
@@ -16,32 +18,56 @@ export default {
 </script>
 
 <template>
-	<div class="container">
-		<h4 class="subtitle">try our seasonal products</h4>
-		<h2 class="title">Order from pick-up delivery to your home</h2>
-		<button class="light">Shop Now</button>
-	</div>
+	<footer>
+		<!-- Call to Action -->
+		<div class="container">
+			<h4 class="subtitle">try our seasonal products</h4>
+			<h2 class="title">Order from pick-up delivery to your home</h2>
+			<button class="light">Shop Now</button>
+		</div>
 
-	<nav>
-		<img
-			src="../assets/images/avada-bakery-logo-retina-200x97.png"
-			alt="Logo" />
-		<ul class="menu">
-			<li v-for="(item, index) in items" :key="item">
-				<a
-					href=""
-					@mouseover="activeItem = index"
-					:class="{active: activeItem === index}">
-					{{ item }}
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<font-awesome-icon icon="fa-solid fa-cart-shopping" />
-				</a>
-			</li>
-		</ul>
-	</nav>
+		<div class="footer-container">
+			<div class="left-section">
+				<img
+					src="../assets/images/avada-bakery-logo-retina-200x97.png"
+					alt="Logo" />
+				<nav>
+					<ul class="menu">
+						<li v-for="(item, index) in items" :key="item">
+							<a
+								href=""
+								@mouseover="activeItem = index"
+								:class="{active: activeItem === index}">
+								{{ item }}
+							</a>
+						</li>
+						<li class="message">
+							<a
+								href=""
+								@mouseover="showMessage = true"
+								@mouseleave="showMessage = false"
+								@click="showMessage = !showMessage">
+								<font-awesome-icon icon="fa-solid fa-cart-shopping" />
+								<span v-if="showMessage"
+									>Il carrello contiene {{ cartItemCount }} elementi</span
+								>
+							</a>
+						</li>
+						<li>
+							<div class="items">{{ cartItemCount }}</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="right-section">
+				<p>Subscribe to our Newsletter</p>
+				<form>
+					<input type="email" placeholder="Enter email address*" />
+					<button class="dark" type="submit">Subscribe</button>
+				</form>
+			</div>
+		</div>
+	</footer>
 </template>
 
 <style lang="scss" scoped>
@@ -50,6 +76,11 @@ export default {
 
 @include text-container-styles(0.7rem, 3rem, 0, #ffffff, #ffffff);
 
+footer {
+	font-family: "Raleway";
+	height: 100vh;
+	padding-top: 10rem;
+}
 .container {
 	background-image: url("../assets/images/call-to-action-bg.jpg");
 	background-size: cover;
@@ -61,6 +92,7 @@ export default {
 	justify-content: center;
 	align-items: start;
 	color: white;
+	margin-bottom: 3rem;
 
 	.subtitle {
 		color: white;
@@ -76,15 +108,72 @@ export default {
 	button {
 		font-size: 1.2rem;
 		padding: 1rem 2.5rem;
+		border-radius: 5px;
 	}
 }
 
-nav {
-	height: 18vh;
+.footer-container {
+	font-family: "Raleway";
+	width: 100%;
+	height: 30vh;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 2rem 3rem;
+	padding-inline: 3rem;
+	margin: 0;
+}
+
+.left-section,
+.right-section {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.left-section {
+	align-items: start;
+	justify-content: center;
+}
+
+.right-section {
+	align-items: end;
+	justify-content: center;
+
+	p {
+		font-family: "Source Serif Pro";
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: $mainColor;
+		margin-bottom: 3rem;
+	}
+
+	button {
+		border-radius: 5px;
+		font-weight: 700;
+	}
+}
+
+form {
+	display: flex;
+}
+
+input {
+	font-family: "Raleway";
+	width: 30rem;
+	margin-right: 1rem;
+	border: 1px solid lightgrey;
+	border-radius: 5px;
+	font-size: 1rem;
+	padding: 0.2rem 1rem;
+}
+
+nav {
+	height: 12vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem 0;
 
 	ul {
 		height: 100%;
@@ -94,10 +183,23 @@ nav {
 		gap: 2.5rem;
 
 		li {
-			height: 50%;
+			height: 70%;
+
+			span {
+				width: 10rem;
+				position: absolute;
+				bottom: 4rem;
+				left: -3rem;
+				background-color: #f0edf5;
+				text-transform: none;
+				padding: 1rem;
+				border-radius: 5px;
+				text-align: center;
+			}
 		}
 
 		a {
+			position: relative;
 			display: flex;
 			align-items: center;
 			height: 100%;
@@ -113,6 +215,21 @@ nav {
 			&.active {
 				border-bottom: 2px solid $mainColor;
 			}
+		}
+
+		.items {
+			font-family: "Source Serif Pro";
+			width: 2rem;
+			height: 2rem;
+			border-radius: 50%;
+			background-color: #f0edf5;
+			font-size: 1.25rem;
+			padding-top: 0.2rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-left: -1.5rem;
+			margin-top: 0.5rem;
 		}
 	}
 }
