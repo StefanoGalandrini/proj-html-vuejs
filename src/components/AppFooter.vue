@@ -4,8 +4,17 @@ export default {
 		return {
 			activeItem: 0,
 			showMessage: false,
-			cartItemCount: 2,
+			cartItemCount: 0,
 		};
+	},
+
+	methods: {
+		incrementCartItemCount() {
+			this.cartItemCount++;
+		},
+		emptyCart() {
+			this.cartItemCount = 0;
+		},
 	},
 
 	props: {
@@ -42,16 +51,16 @@ export default {
 							</a>
 						</li>
 						<li class="message">
-							<a
-								href=""
+							<div
 								@mouseover="showMessage = true"
 								@mouseleave="showMessage = false"
-								@click="showMessage = !showMessage">
+								@click="incrementCartItemCount">
 								<font-awesome-icon icon="fa-solid fa-cart-shopping" />
-								<span v-if="showMessage"
-									>Il carrello contiene {{ cartItemCount }} elementi</span
-								>
-							</a>
+								<span v-if="showMessage">
+									Il carrello contiene {{ cartItemCount }} elementi
+									<button class="dark" @click.stop="emptyCart">SVUOTA</button>
+								</span>
+							</div>
 						</li>
 						<li>
 							<div class="items">{{ cartItemCount }}</div>
@@ -206,18 +215,6 @@ nav {
 
 		li {
 			height: 70%;
-
-			span {
-				width: 10rem;
-				position: absolute;
-				bottom: 4rem;
-				left: -3rem;
-				background-color: #f0edf5;
-				text-transform: none;
-				padding: 1rem;
-				border-radius: 5px;
-				text-align: center;
-			}
 		}
 
 		a {
@@ -236,6 +233,37 @@ nav {
 
 			&.active {
 				border-bottom: 2px solid $mainColor;
+			}
+		}
+
+		div {
+			position: relative;
+			display: flex;
+			align-items: center;
+			height: 100%;
+			text-decoration: none;
+			font-size: 0.8rem;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+			color: $mainColor;
+
+			span {
+				width: 10rem;
+				position: absolute;
+				bottom: 3rem;
+				left: -4.5rem;
+				background-color: #f0edf5;
+				text-transform: none;
+				padding: 1rem;
+				border-radius: 5px;
+				text-align: center;
+
+				button {
+					font-size: 0.8rem;
+					padding: 0.5rem 1rem;
+					border-radius: 5px;
+					margin-top: 0.5rem;
+				}
 			}
 		}
 
