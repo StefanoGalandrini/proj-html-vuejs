@@ -59,8 +59,8 @@ export default {
 .grid-container {
 	width: 88vw;
 	height: 90vh;
-	padding: 10rem 0;
-	margin: 20rem auto;
+	padding: 5rem 0;
+	margin: 10rem auto;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(2, 1fr);

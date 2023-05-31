@@ -8,6 +8,7 @@ import AppCarouselSmall from "./components/AppCarouselSmall.vue";
 import AppCards from "./components/AppCards.vue";
 import AppLocations from "./components/AppLocations.vue";
 import AppSocials from "./components/AppSocials.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
 	data() {
@@ -54,6 +55,7 @@ export default {
 		AppCards,
 		AppLocations,
 		AppSocials,
+		AppFooter,
 	},
 
 	computed: {
@@ -67,6 +69,10 @@ export default {
 
 		photos() {
 			return store.photos;
+		},
+
+		bottomMenuItems() {
+			return store.bottomMenuItems;
 		},
 	},
 };
@@ -103,6 +109,8 @@ export default {
 	<AppLocations :locations="locations" />
 
 	<AppSocials :photos="photos" />
+
+	<AppFooter :items="bottomMenuItems" />
 </template>
 
 <style lang="scss">

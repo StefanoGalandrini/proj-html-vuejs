@@ -12,6 +12,16 @@ export const store = reactive({
 		"My Account",
 	],
 
+	bottomMenuItems: [
+		"Shop",
+		"About",
+		"Gallery",
+		"Locations",
+		"Journal",
+		"Contact",
+		"Orders",
+	],
+
 	carouselImages: [
 		{
 			src: "../../src/assets/images/blackberry-stuffed-bread-400x510.jpg",

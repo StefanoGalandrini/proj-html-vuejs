@@ -66,7 +66,7 @@ export default {
 			</div>
 		</div>
 
-		<!-- Pulsante "sticky" per tornare alla "home" -->
+		<!-- Pulsante "fixed" per tornare alla "home" -->
 		<div>
 			<button v-show="isScrolled" @click="scrollToTop" class="back-to-top">
 				<font-awesome-icon icon="fa-solid fa-arrow-up-from-bracket" />
