@@ -8,8 +8,8 @@ export default {
 			currentImage: 0,
 			selectedImage: null,
 			imagesShown: 2,
-			// autoScroll: true,
-			// autoScrollInterval: null,
+			autoScroll: true,
+			autoScrollInterval: null,
 		};
 	},
 
@@ -43,25 +43,27 @@ export default {
 
 		showImageText(index) {
 			this.selectedImage = index;
+			this.stopAutoScroll();
 		},
 
 		hideImageText() {
 			this.selectedImage = null;
+			this.startAutoScroll();
 		},
 
-		// startAutoScroll() {
-		// 	this.autoScroll = true;
-		// 	this.autoScrollInterval = setInterval(() => {
-		// 		if (this.autoScroll) {
-		// 			this.nextImage();
-		// 		}
-		// 	}, 2000);
-		// },
+		startAutoScroll() {
+			this.autoScroll = true;
+			this.autoScrollInterval = setInterval(() => {
+				if (this.autoScroll) {
+					this.nextImage();
+				}
+			}, 2000);
+		},
 
-		// stopAutoScroll() {
-		// 	this.autoScroll = false;
-		// 	clearInterval(this.autoScrollInterval);
-		// },
+		stopAutoScroll() {
+			this.autoScroll = false;
+			clearInterval(this.autoScrollInterval);
+		},
 	},
 
 	computed: {
@@ -73,9 +75,9 @@ export default {
 		},
 	},
 
-	// mounted() {
-	// 	this.startAutoScroll();
-	// },
+	mounted() {
+		this.startAutoScroll();
+	},
 };
 </script>
 
@@ -97,7 +99,6 @@ export default {
 					class="carousel-container"
 					:style="{'--images-shown': imagesShown}">
 					<div class="carousel-images">
-						<!-- <transition-group name="slide" tag="div"> -->
 						<div
 							v-for="(image, index) in visibleImages"
 							:key="index"
@@ -137,7 +138,7 @@ export default {
 .wrapper {
 	width: 88vw;
 	height: 75vh;
-	margin: 11.5rem auto;
+	margin: 6rem auto;
 	display: grid;
 	grid-template-columns: 4fr 8fr;
 	grid-template-rows: auto;

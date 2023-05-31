@@ -9,8 +9,8 @@ export default {
 			selectedImage: null,
 			imagesShown: 4,
 			isVisible: true,
-			// autoScroll: true,
-			// autoScrollInterval: null,
+			autoScroll: true,
+			autoScrollInterval: null,
 		};
 	},
 
@@ -44,25 +44,27 @@ export default {
 
 		showImageText(index) {
 			this.selectedImage = index;
+			this.stopAutoScroll();
 		},
 
 		hideImageText() {
 			this.selectedImage = null;
+			this.startAutoScroll();
 		},
 
-		// startAutoScroll() {
-		// 	this.autoScroll = true;
-		// 	this.autoScrollInterval = setInterval(() => {
-		// 		if (this.autoScroll) {
-		// 			this.nextImage();
-		// 		}
-		// 	}, 2000);
-		// },
+		startAutoScroll() {
+			this.autoScroll = true;
+			this.autoScrollInterval = setInterval(() => {
+				if (this.autoScroll) {
+					this.nextImage();
+				}
+			}, 2000);
+		},
 
-		// stopAutoScroll() {
-		// 	this.autoScroll = false;
-		// 	clearInterval(this.autoScrollInterval);
-		// },
+		stopAutoScroll() {
+			this.autoScroll = false;
+			clearInterval(this.autoScrollInterval);
+		},
 	},
 
 	computed: {
@@ -74,9 +76,9 @@ export default {
 		},
 	},
 
-	// mounted() {
-	// 	this.startAutoScroll();
-	// },
+	mounted() {
+		this.startAutoScroll();
+	},
 };
 </script>
 
@@ -98,7 +100,6 @@ export default {
 					class="carousel-container"
 					:style="{'--images-shown': imagesShown}">
 					<div class="carousel-images">
-						<!-- <transition-group name="slide" tag="div"> -->
 						<div
 							v-for="(image, index) in visibleImages"
 							:key="index"
@@ -116,7 +117,7 @@ export default {
 							<div
 								class="hover"
 								@mouseover="isVisible = true"
-								@mouseleave="isVisible = False">
+								@mouseleave="isVisible = false">
 								<p class="name">{{ image.name }}</p>
 								<p class="price">{{ image.price }}</p>
 							</div>
@@ -144,7 +145,7 @@ export default {
 	width: 88vw;
 	height: 75vh;
 	margin: 11.5rem auto;
-	padding-top: 5rem;
+	padding-top: 12rem;
 	display: grid;
 	align-content: center;
 	grid-template-columns: 3fr 9fr;
