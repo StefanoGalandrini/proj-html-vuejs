@@ -118,7 +118,7 @@ nav {
 			color: $mainColor;
 			border-bottom: 2px solid transparent;
 			cursor: pointer;
-			transition: all 20ms;
+			transition: all 200ms;
 
 			&.active {
 				border-bottom: 2px solid $mainColor;

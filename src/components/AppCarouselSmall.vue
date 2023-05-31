@@ -123,7 +123,10 @@ export default {
 							</div>
 						</div>
 					</div>
-					<div class="carousel-arrows">
+					<div
+						@mouseover="stopAutoScroll"
+						@mouseleave="startAutoScroll"
+						class="carousel-arrows">
 						<font-awesome-icon
 							icon="fa-solid fa-chevron-left"
 							@click="prevImage" />
@@ -144,8 +147,7 @@ export default {
 .wrapper {
 	width: 88vw;
 	height: 75vh;
-	margin: 11.5rem auto;
-	padding-top: 12rem;
+	margin: 6rem auto;
 	display: grid;
 	align-content: center;
 	grid-template-columns: 3fr 9fr;
@@ -176,16 +178,22 @@ export default {
 }
 
 .carousel-images div.shown {
-	flex: 0 0 calc((100% - 3rem) / 4);
+	width: calc((100% - 3rem) / 4);
 	position: relative;
 }
 
 .carousel-images img {
+	display: block;
 	width: 100%;
 	height: 85%;
 	object-fit: cover;
-	filter: brightness(0.8);
+	filter: brightness(0.9);
 	margin-bottom: 1rem;
+	transition: all 300ms;
+
+	&:hover {
+		filter: brightness(0.6);
+	}
 }
 
 .image-text {
@@ -208,6 +216,7 @@ export default {
 }
 
 .hover {
+	height: max-content;
 	background-color: white;
 	color: $mainColor;
 }
@@ -247,7 +256,7 @@ export default {
 	padding: 2.2rem 1rem;
 	color: white;
 	position: absolute;
-	right: 0;
+	right: 1px;
 	background-color: #a691b2;
 }
 </style>

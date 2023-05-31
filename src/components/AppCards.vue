@@ -65,7 +65,6 @@ export default {
 		font-size: 3.5rem;
 		font-weight: 700;
 		line-height: 3.5rem;
-		// margin-bottom: 20rem;
 	}
 
 	.subtitle {

@@ -113,7 +113,7 @@ export default {
 footer {
 	font-family: "Raleway";
 	height: 100vh;
-	padding-top: 10rem;
+	padding-top: 15rem;
 }
 .container {
 	background-image: url("../assets/images/call-to-action-bg.jpg");
@@ -231,7 +231,7 @@ nav {
 			color: $mainColor;
 			border-bottom: 2px solid transparent;
 			cursor: pointer;
-			transition: all 20ms;
+			transition: all 200ms;
 
 			&.active {
 				border-bottom: 2px solid $mainColor;

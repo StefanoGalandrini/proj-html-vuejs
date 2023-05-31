@@ -30,6 +30,7 @@ export default {
 					class="card"
 					v-for="location in locations"
 					:key="location.city"
+					:class="location.city.toLowerCase().replace(/ /, '')"
 					:style="{backgroundColor: location.bgColor}">
 					<img :src="getUrl(location)" :alt="location.name" />
 					<h3>{{ location.city }}</h3>
@@ -83,6 +84,22 @@ export default {
 			font-family: "Source Serif Pro";
 			font-size: 2rem;
 		}
+	}
+}
+
+.newyork {
+	transition: all 300ms;
+
+	&:hover {
+		transform: scale(105%);
+	}
+}
+
+.london {
+	transition: all 300ms;
+
+	&:hover {
+		transform: scale(105%);
 	}
 }
 

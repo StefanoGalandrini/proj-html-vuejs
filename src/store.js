@@ -86,14 +86,14 @@ export const store = reactive({
 			phone: "1.800.458.556",
 			hours: "9:00 AM - 6:00 PM",
 			url: "new-york-bk-800x530.jpg",
-			bgColor: "#f1f9fb",
+			bgColor: "#f1f9ff",
 		},
 		{
 			city: "London",
 			phone: "1.800.458.556",
 			hours: "9:00 AM - 6:00 PM",
 			url: "london-bk-800x530.jpg",
-			bgColor: "#faf3e3",
+			bgColor: "#fdf3db",
 		},
 	],
 

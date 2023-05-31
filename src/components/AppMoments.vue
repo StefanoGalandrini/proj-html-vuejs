@@ -89,7 +89,7 @@ export default {
 @include text-container-styles(0.7rem, 2.1rem, 0, $textColor, $mainColor);
 .container {
 	width: 88vw;
-	height: 75vh;
+	min-height: 65vh;
 	margin: 6rem auto;
 	text-align: center;
 
@@ -105,11 +105,11 @@ export default {
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	align-items: center;
-	gap: 6rem;
+	gap: 4rem;
 
 	.corp,
 	.wed {
-		width: calc((100% - 6rem) / 2);
+		width: calc((100% - 4rem) / 2);
 	}
 
 	img {

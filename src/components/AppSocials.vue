@@ -61,7 +61,7 @@ export default {
 .grid-container {
 	width: 88vw;
 	height: 90vh;
-	padding: 5rem 0;
+	padding: 13rem 0;
 	margin: 10rem auto;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
@@ -76,6 +76,13 @@ export default {
 	width: 100%;
 	padding: 0;
 	border: none;
+	filter: brightness(0.8);
+	transition: all 300ms;
+
+	&:hover {
+		filter: brightness(1.2);
+		transform: scale(102%);
+	}
 }
 
 .socials {

@@ -146,7 +146,12 @@ export default {
 		z-index: -1;
 		background-image: url(./assets/images/bakery-process-1.jpg);
 		background-size: cover;
-		filter: brightness(0.5);
+		filter: brightness(0.8);
+	}
+
+	&:hover::before {
+		filter: brightness(0.6);
+		box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.7);
 	}
 }
 
@@ -161,14 +166,19 @@ export default {
 		z-index: -1;
 		background-image: url(./assets/images/bakery-process-2.jpg);
 		background-size: cover;
-		filter: brightness(0.5);
+		filter: brightness(0.8);
+	}
+
+	&:hover::before {
+		filter: brightness(0.6);
+		box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.7);
 	}
 }
 
 .grid-area-3 {
 	grid-area: 2 / 2 / 3 / 3;
-	background-color: #f8f1f3;
 	padding: 5rem 7.5rem;
+	background-color: #f8f1f3;
 
 	.subtitle {
 		color: $textColor;
@@ -186,6 +196,10 @@ export default {
 		line-height: 3.5rem;
 		margin-bottom: 4rem;
 	}
+
+	&:hover {
+		box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.7);
+	}
 }
 
 .grid-area-4 {
@@ -199,7 +213,12 @@ export default {
 		z-index: -1;
 		background-image: url(./assets/images/bakery-process-3.jpg);
 		background-size: cover;
-		filter: brightness(0.5);
+		filter: brightness(0.8);
+	}
+
+	&:hover::before {
+		filter: brightness(0.6);
+		box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.7);
 	}
 }
 </style>

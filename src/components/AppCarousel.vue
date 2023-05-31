@@ -174,7 +174,11 @@ export default {
 	width: calc(100% - 1rem);
 	height: 100%;
 	object-fit: cover;
-	filter: brightness(0.8);
+	filter: brightness(0.9);
+
+	&:hover {
+		filter: brightness(0.5);
+	}
 }
 
 .image-text {
