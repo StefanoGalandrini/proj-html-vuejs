@@ -58,7 +58,7 @@ export default {
 .container {
 	width: 88vw;
 	height: 75vh;
-	margin: 11.5rem auto;
+	margin: 6rem auto;
 	text-align: center;
 }
 

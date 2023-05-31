@@ -119,7 +119,7 @@ export default {
 .grid-container {
 	width: 88vw;
 	height: 250vh;
-	margin: 11.5rem auto;
+	margin: 6rem auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: repeat(auto-fill, 19cm);

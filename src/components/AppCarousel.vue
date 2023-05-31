@@ -117,7 +117,10 @@ export default {
 							</div>
 						</div>
 					</div>
-					<div class="carousel-arrows">
+					<div
+						@mouseover="stopAutoScroll"
+						@mouseleave="startAutoScroll"
+						class="carousel-arrows">
 						<font-awesome-icon
 							icon="fa-solid fa-chevron-left"
 							@click="prevImage" />
