@@ -90,7 +90,7 @@ export default {
 .container {
 	width: 88vw;
 	height: 75vh;
-	margin: 11.5rem auto;
+	margin: 6rem auto;
 	text-align: center;
 
 	.subtitle,
@@ -113,6 +113,7 @@ export default {
 	}
 
 	img {
+		display: block;
 		width: 100%;
 	}
 }
@@ -120,18 +121,34 @@ export default {
 .wed-hover,
 .corp-hover {
 	position: relative;
+
+	img {
+		filter: brightness(0.6);
+	}
 }
 
 div.container.hover {
+	margin: 0;
+	width: 100%;
+	height: 100%;
 	z-index: 10;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
 	.subtitle,
 	.title {
 		color: white;
+	}
+
+	button {
+		max-width: fit-content;
+		text-align: center;
 	}
 }
 </style>
