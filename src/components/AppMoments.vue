@@ -27,57 +27,59 @@ export default {
 </script>
 
 <template>
-	<div class="container">
-		<h4 class="subtitle">Corporate & Weddings</h4>
-		<h2 class="title">Baking Special Moments</h2>
-		<div class="pictures">
-			<div
-				class="corp"
-				@mouseover="this.handleMouseOver('corp')"
-				@mouseleave="this.handleMouseOut('corp')">
-				<img
-					v-show="!this.hoverCorp"
-					class="pic-corp"
-					src="../assets/images/corporate-bg.jpg"
-					alt="" />
-
-				<div v-show="this.hoverCorp" class="corp-hover">
+	<section id="about">
+		<div class="container">
+			<h4 class="subtitle">Corporate & Weddings</h4>
+			<h2 class="title">Baking Special Moments</h2>
+			<div class="pictures">
+				<div
+					class="corp"
+					@mouseover="this.handleMouseOver('corp')"
+					@mouseleave="this.handleMouseOut('corp')">
 					<img
-						class="pic-corp-hover"
-						src="../assets/images/corporate-hover-bg.jpg"
+						v-show="!this.hoverCorp"
+						class="pic-corp"
+						src="../assets/images/corporate-bg.jpg"
 						alt="" />
-					<div class="container hover">
-						<h4 class="subtitle">International Bakery</h4>
-						<h2 class="title">Corporate Events</h2>
-						<button class="dark">Explore more</button>
+
+					<div v-show="this.hoverCorp" class="corp-hover">
+						<img
+							class="pic-corp-hover"
+							src="../assets/images/corporate-hover-bg.jpg"
+							alt="" />
+						<div class="container hover">
+							<h4 class="subtitle">International Bakery</h4>
+							<h2 class="title">Corporate Events</h2>
+							<button class="dark">Explore more</button>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div
-				class="wed"
-				@mouseover="this.handleMouseOver('wed')"
-				@mouseleave="this.handleMouseOut('wed')">
-				<img
-					v-show="!this.hoverWed"
-					class="pic-wed"
-					src="../assets/images/wedding-bg.jpg"
-					alt="" />
-
-				<div v-show="this.hoverWed" class="wed-hover">
+				<div
+					class="wed"
+					@mouseover="this.handleMouseOver('wed')"
+					@mouseleave="this.handleMouseOut('wed')">
 					<img
-						class="pic-wed-hover"
-						src="../assets/images/wedding-hover-bg.jpg"
+						v-show="!this.hoverWed"
+						class="pic-wed"
+						src="../assets/images/wedding-bg.jpg"
 						alt="" />
-					<div class="container hover">
-						<h4 class="subtitle">Private Dining Hall</h4>
-						<h2 class="title">Weddings & Parties</h2>
-						<button class="dark">Explore more</button>
+
+					<div v-show="this.hoverWed" class="wed-hover">
+						<img
+							class="pic-wed-hover"
+							src="../assets/images/wedding-hover-bg.jpg"
+							alt="" />
+						<div class="container hover">
+							<h4 class="subtitle">Private Dining Hall</h4>
+							<h2 class="title">Weddings & Parties</h2>
+							<button class="dark">Explore more</button>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <style lang="scss" scoped>

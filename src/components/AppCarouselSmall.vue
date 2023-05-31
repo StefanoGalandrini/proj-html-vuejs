@@ -81,55 +81,59 @@ export default {
 </script>
 
 <template>
-	<div class="wrapper">
-		<!-- Description Text -->
-		<div class="container">
-			<h2 class="title">Find a freshly baked product perfect for you</h2>
-			<p class="text">
-				Integer a nibh vitae ex porttior rutrum et ut velit. Etiam ac felis at
-				leo feugiat placerat. Sed ac nulla id orci tempor convallis sed.
-			</p>
-			<button class="dark">Shop All products</button>
-		</div>
+	<section id="gallery">
+		<div class="wrapper">
+			<!-- Description Text -->
+			<div class="container">
+				<h2 class="title">Find a freshly baked product perfect for you</h2>
+				<p class="text">
+					Integer a nibh vitae ex porttior rutrum et ut velit. Etiam ac felis at
+					leo feugiat placerat. Sed ac nulla id orci tempor convallis sed.
+				</p>
+				<button class="dark">Shop All products</button>
+			</div>
 
-		<div>
-			<div class="carousel-container" :style="{'--images-shown': imagesShown}">
-				<div class="carousel-images">
-					<!-- <transition-group name="slide" tag="div"> -->
-					<div
-						v-for="(image, index) in visibleImages"
-						:key="index"
-						class="shown">
-						<img
-							:src="image.src"
-							:alt="image.name"
-							@mouseover="showImageText(index + currentImage)"
-							@mouseleave="hideImageText" />
+			<div>
+				<div
+					class="carousel-container"
+					:style="{'--images-shown': imagesShown}">
+					<div class="carousel-images">
+						<!-- <transition-group name="slide" tag="div"> -->
 						<div
-							v-if="selectedImage === index + currentImage"
-							class="image-text">
-							<p class="type">select options / quick view</p>
-						</div>
-						<div
-							class="hover"
-							@mouseover="isVisible = true"
-							@mouseleave="isVisible = False">
-							<p class="name">{{ image.name }}</p>
-							<p class="price">{{ image.price }}</p>
+							v-for="(image, index) in visibleImages"
+							:key="index"
+							class="shown">
+							<img
+								:src="image.src"
+								:alt="image.name"
+								@mouseover="showImageText(index + currentImage)"
+								@mouseleave="hideImageText" />
+							<div
+								v-if="selectedImage === index + currentImage"
+								class="image-text">
+								<p class="type">select options / quick view</p>
+							</div>
+							<div
+								class="hover"
+								@mouseover="isVisible = true"
+								@mouseleave="isVisible = False">
+								<p class="name">{{ image.name }}</p>
+								<p class="price">{{ image.price }}</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="carousel-arrows">
-					<font-awesome-icon
-						icon="fa-solid fa-chevron-left"
-						@click="prevImage" />
-					<font-awesome-icon
-						icon="fa-solid fa-chevron-right"
-						@click="nextImage" />
+					<div class="carousel-arrows">
+						<font-awesome-icon
+							icon="fa-solid fa-chevron-left"
+							@click="prevImage" />
+						<font-awesome-icon
+							icon="fa-solid fa-chevron-right"
+							@click="nextImage" />
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <style lang="scss" scoped>

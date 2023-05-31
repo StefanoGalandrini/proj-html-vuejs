@@ -20,32 +20,34 @@ export default {
 </script>
 
 <template>
-	<div class="container">
-		<h4 class="subtitle">Locations</h4>
-		<h2 class="title">Visit our Bakeries</h2>
+	<section id="locations">
+		<div class="container">
+			<h4 class="subtitle">Locations</h4>
+			<h2 class="title">Visit our Bakeries</h2>
 
-		<div class="cards">
-			<div
-				class="card"
-				v-for="location in locations"
-				:key="location.city"
-				:style="{backgroundColor: location.bgColor}">
-				<img :src="getUrl(location)" :alt="location.name" />
-				<h3>{{ location.city }}</h3>
-				<div class="info-blocks">
-					<div class="info">
-						<p class="text">call us</p>
-						<p>{{ location.phone }}</p>
+			<div class="cards">
+				<div
+					class="card"
+					v-for="location in locations"
+					:key="location.city"
+					:style="{backgroundColor: location.bgColor}">
+					<img :src="getUrl(location)" :alt="location.name" />
+					<h3>{{ location.city }}</h3>
+					<div class="info-blocks">
+						<div class="info">
+							<p class="text">call us</p>
+							<p>{{ location.phone }}</p>
+						</div>
+						<div class="info">
+							<p class="text">open all week</p>
+							<p>{{ location.hours }}</p>
+						</div>
+						<button class="info light">View Map</button>
 					</div>
-					<div class="info">
-						<p class="text">open all week</p>
-						<p>{{ location.hours }}</p>
-					</div>
-					<button class="info light">View Map</button>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <style lang="scss" scoped>

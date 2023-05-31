@@ -29,11 +29,13 @@ export default {
 <template>
 	<footer>
 		<!-- Call to Action -->
-		<div class="container">
-			<h4 class="subtitle">try our seasonal products</h4>
-			<h2 class="title">Order from pick-up delivery to your home</h2>
-			<button class="light">Shop Now</button>
-		</div>
+		<section id="orders">
+			<div class="container">
+				<h4 class="subtitle">try our seasonal products</h4>
+				<h2 class="title">Order from pick-up delivery to your home</h2>
+				<button class="light">Shop Now</button>
+			</div>
+		</section>
 
 		<div class="footer-container">
 			<div class="left-section">
@@ -44,7 +46,7 @@ export default {
 					<ul class="menu">
 						<li v-for="(item, index) in items" :key="item">
 							<a
-								href=""
+								:href="`#${item.toLowerCase()}`"
 								@mouseover="activeItem = index"
 								:class="{active: activeItem === index}">
 								{{ item }}
@@ -292,13 +294,12 @@ nav {
 	font-size: 0.8rem;
 	color: $textColor;
 	margin-bottom: 5rem;
-}
 
-.icons {
-	display: flex;
-	gap: 3rem;
-	color: $mainColor;
-	font-size: 1.3rem;
-	margin-left: 3rem;
+	.icons a {
+		gap: 3rem;
+		color: $mainColor;
+		font-size: 1.3rem;
+		margin-left: 3rem;
+	}
 }
 </style>

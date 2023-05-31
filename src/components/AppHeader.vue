@@ -30,50 +30,51 @@ export default {
 </script>
 
 <template>
-	<header>
-		<nav>
-			<img
-				src="../assets/images/avada-bakery-logo-retina-200x97.png"
-				alt="Logo" />
-			<ul class="menu">
-				<li v-for="(item, index) in this.store.topMenuItems" :key="item">
-					<a
-						href="#"
-						@mouseover="activeItem = index"
-						:class="{active: activeItem === index}">
-						{{ item }}
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<font-awesome-icon icon="fa-solid fa-cart-shopping" />
-					</a>
-				</li>
-			</ul>
-		</nav>
+	<section id="home">
+		<header>
+			<nav>
+				<img
+					src="../assets/images/avada-bakery-logo-retina-200x97.png"
+					alt="Logo" />
+				<ul class="menu">
+					<li v-for="(item, index) in this.store.topMenuItems" :key="item">
+						<a
+							:href="`#${item.toLowerCase()}`"
+							@mouseover="activeItem = index"
+							:class="{active: activeItem === index}">
+							{{ item }}
+						</a>
+					</li>
+					<li>
+						<a>
+							<font-awesome-icon icon="fa-solid fa-cart-shopping" />
+						</a>
+					</li>
+				</ul>
+			</nav>
 
-		<!-- Hero Text -->
-		<div class="wrapper">
-			<div class="container">
-				<h4 class="subtitle">Fresh & Tasty Bakery Every Day</h4>
-				<h2 class="title">The perfect Fresh Bread</h2>
-				<p class="text">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-					nesciunt eum voluptates harum ipsam voluptate? Magnam commodi
-					molestiae perferendis.
-				</p>
-				<button class="light">Explore our products</button>
+			<!-- Hero Text -->
+			<div class="wrapper">
+				<div class="container">
+					<h4 class="subtitle">Fresh & Tasty Bakery Every Day</h4>
+					<h2 class="title">The perfect Fresh Bread</h2>
+					<p class="text">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Voluptatibus nesciunt eum voluptates harum ipsam voluptate? Magnam
+						commodi molestiae perferendis.
+					</p>
+					<button class="light">Explore our products</button>
+				</div>
 			</div>
-		</div>
 
-		<!-- Pulsante "fixed" per tornare alla "home" -->
-		<div>
-			<button v-show="isScrolled" @click="scrollToTop" class="back-to-top">
-				<font-awesome-icon icon="fa-solid fa-arrow-up-from-bracket" />
-				<p>TORNA SU</p>
-			</button>
-		</div>
-	</header>
+			<!-- Pulsante "fixed" per tornare alla "home" -->
+			<div>
+				<button v-show="isScrolled" @click="scrollToTop" class="back-to-top">
+					<font-awesome-icon icon="fa-solid fa-chevron-up" />
+				</button>
+			</div>
+		</header>
+	</section>
 </template>
 
 <style lang="scss" scoped>

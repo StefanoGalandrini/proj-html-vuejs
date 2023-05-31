@@ -10,9 +10,9 @@ import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 /* import specific icons */
 import {
 	faCartShopping,
-	faArrowUpFromBracket,
 	faChevronRight,
 	faChevronLeft,
+	faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -25,9 +25,9 @@ import {
 /* add icons to the library */
 library.add(
 	faCartShopping,
-	faArrowUpFromBracket,
 	faChevronRight,
 	faChevronLeft,
+	faChevronUp,
 	faInstagram,
 	faTwitter,
 	faFacebookF,

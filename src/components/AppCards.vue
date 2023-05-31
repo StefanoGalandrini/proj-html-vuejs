@@ -19,23 +19,25 @@ export default {
 </script>
 
 <template>
-	<div class="cards container">
-		<div
-			class="card"
-			:class="{
-				large: card.dimension === 'large',
-				'text-right': card.justify === 'right',
-			}">
-			<p class="title">{{ card.title }}</p>
-			<p class="subtitle" :class="{'text-right': card.justify === 'right'}">
-				{{ card.subtitle }}
-			</p>
-			<p class="text" :class="{'text-right': card.justify === 'right'}">
-				{{ card.text }}
-			</p>
-			<p class="index">0{{ index + 1 }}</p>
+	<section id="journal">
+		<div class="cards container">
+			<div
+				class="card"
+				:class="{
+					large: card.dimension === 'large',
+					'text-right': card.justify === 'right',
+				}">
+				<p class="title">{{ card.title }}</p>
+				<p class="subtitle" :class="{'text-right': card.justify === 'right'}">
+					{{ card.subtitle }}
+				</p>
+				<p class="text" :class="{'text-right': card.justify === 'right'}">
+					{{ card.text }}
+				</p>
+				<p class="index">0{{ index + 1 }}</p>
+			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <style lang="scss" scoped>

@@ -80,50 +80,54 @@ export default {
 </script>
 
 <template>
-	<div class="wrapper">
-		<!-- Description Text -->
-		<div class="container">
-			<h4 class="subtitle">Our products</h4>
-			<h2 class="title">
-				All our delectable pastries are backed fresh in our Kitchen every
-				morning, and are made with all-natural, all organic ingredients.
-			</h2>
-			<button class="dark">Start Shopping</button>
-		</div>
+	<section id="shop">
+		<div class="wrapper">
+			<!-- Description Text -->
+			<div class="container">
+				<h4 class="subtitle">Our products</h4>
+				<h2 class="title">
+					All our delectable pastries are backed fresh in our Kitchen every
+					morning, and are made with all-natural, all organic ingredients.
+				</h2>
+				<button class="dark">Start Shopping</button>
+			</div>
 
-		<div>
-			<div class="carousel-container" :style="{'--images-shown': imagesShown}">
-				<div class="carousel-images">
-					<!-- <transition-group name="slide" tag="div"> -->
-					<div
-						v-for="(image, index) in visibleImages"
-						:key="index"
-						class="shown">
-						<img
-							:src="image.src"
-							:alt="image.name"
-							@mouseover="showImageText(index + currentImage)"
-							@mouseleave="hideImageText" />
+			<div>
+				<div
+					class="carousel-container"
+					:style="{'--images-shown': imagesShown}">
+					<div class="carousel-images">
+						<!-- <transition-group name="slide" tag="div"> -->
 						<div
-							v-if="selectedImage === index + currentImage"
-							class="image-text">
-							<p class="name">{{ image.name }}</p>
-							<p class="type">Cookies, Pastries</p>
-							<p class="price">{{ image.price }}</p>
+							v-for="(image, index) in visibleImages"
+							:key="index"
+							class="shown">
+							<img
+								:src="image.src"
+								:alt="image.name"
+								@mouseover="showImageText(index + currentImage)"
+								@mouseleave="hideImageText" />
+							<div
+								v-if="selectedImage === index + currentImage"
+								class="image-text">
+								<p class="name">{{ image.name }}</p>
+								<p class="type">Cookies, Pastries</p>
+								<p class="price">{{ image.price }}</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="carousel-arrows">
-					<font-awesome-icon
-						icon="fa-solid fa-chevron-left"
-						@click="prevImage" />
-					<font-awesome-icon
-						icon="fa-solid fa-chevron-right"
-						@click="nextImage" />
+					<div class="carousel-arrows">
+						<font-awesome-icon
+							icon="fa-solid fa-chevron-left"
+							@click="prevImage" />
+						<font-awesome-icon
+							icon="fa-solid fa-chevron-right"
+							@click="nextImage" />
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <style lang="scss" scoped>

@@ -27,27 +27,29 @@ export default {
 </script>
 
 <template>
-	<div class="grid-container">
-		<div
-			v-for="(photo, index) in photos"
-			:key="photo.id"
-			:class="getClassForIndex(index)"
-			class="grid-item">
-			<div class="socials">
-				<img :src="getUrl(photo)" alt="" />
+	<section id="contact">
+		<div class="grid-container">
+			<div
+				v-for="(photo, index) in photos"
+				:key="photo.id"
+				:class="getClassForIndex(index)"
+				class="grid-item">
+				<div class="socials">
+					<img :src="getUrl(photo)" alt="" />
+				</div>
+			</div>
+			<div class="rectangle">
+				<div class="container">
+					<h4 class="subtitle">made for sharing</h4>
+					<h2 class="title">Let's stay in touch</h2>
+					<button class="dark">
+						<font-awesome-icon icon="fa-brands fa-instagram" />
+						<span> Follow Us</span>
+					</button>
+				</div>
 			</div>
 		</div>
-		<div class="rectangle">
-			<div class="container">
-				<h4 class="subtitle">made for sharing</h4>
-				<h2 class="title">Let's stay in touch</h2>
-				<button class="dark">
-					<font-awesome-icon icon="fa-brands fa-instagram" />
-					<span> Follow Us</span>
-				</button>
-			</div>
-		</div>
-	</div>
+	</section>
 </template>
 
 <style lang="scss" scoped>
