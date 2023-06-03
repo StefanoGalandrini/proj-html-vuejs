@@ -216,7 +216,7 @@ export default {
 }
 
 .hover {
-	height: max-content;
+	height: 7rem;
 	background-color: white;
 	color: $mainColor;
 }

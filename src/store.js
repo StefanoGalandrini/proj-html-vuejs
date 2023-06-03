@@ -80,6 +80,62 @@ export const store = reactive({
 		},
 	],
 
+	cardsArray: [
+		{
+			id: 0,
+			title: `“Finally found an alternative to the mass produced products. Something that incorporates real organic ingredients, nutrient dense wellness while promoting sustainability and activity”.`,
+			subtitle: "Don't just take our word for it",
+			text: "Rachel Cooper, Founder",
+			justify: "left",
+			dimension: "small",
+			backgroundImage: "",
+		},
+		{
+			id: 1,
+			title: "Tell us what you have in mind",
+			subtitle: "manual ingredient selection",
+			text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, eum nemo assumenda optio libero autem, vero sed quibusdam, necessitatibus asperiores consectetur eius est eos? Ipsa pariatur delectus illo necessitatibus asperiores qui dignissimos ullam! Fugit, sed optio.",
+			justify: "right",
+			dimension: "large",
+			backgroundImage: "bakery-process-1.jpg",
+		},
+		{
+			id: 2,
+			title: "We Start Baking",
+			subtitle: "sweet & delicious",
+			text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, eum nemo assumenda optio libero autem, vero sed quibusdam, necessitatibus asperiores consectetur eius est eos? Ipsa pariatur delectus illo necessitatibus asperiores qui dignissimos ullam! Fugit, sed optio.",
+			justify: "left",
+			dimension: "small",
+			backgroundImage: "bakery-process-2.jpg",
+		},
+		{
+			id: 3,
+			title: "Delivered to your home",
+			subtitle: "baked to order & gift wrapped",
+			text: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis, eum nemo assumenda optio libero autem, vero sed quibusdam, necessitatibus asperiores consectetur eius est eos? Ipsa pariatur delectus illo necessitatibus asperiores qui dignissimos ullam! Fugit, sed optio.",
+			justify: "left",
+			dimension: "large",
+			backgroundImage: "bakery-process-3.jpg",
+		},
+	],
+
+	locations: [
+		{
+			city: "New York",
+			phone: "1.800.458.556",
+			hours: "9:00 AM - 6:00 PM",
+			url: "new-york-bk-800x530.jpg",
+			bgColor: "#f1f9ff",
+		},
+		{
+			city: "London",
+			phone: "1.800.458.556",
+			hours: "9:00 AM - 6:00 PM",
+			url: "london-bk-800x530.jpg",
+			bgColor: "#fdf3db",
+		},
+	],
+
 	locations: [
 		{
 			city: "New York",
