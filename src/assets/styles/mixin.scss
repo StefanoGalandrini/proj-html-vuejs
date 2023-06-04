@@ -65,3 +65,23 @@ button.dark {
 		font-weight: 700;
 	}
 }
+
+// mixin per elementi Grid nel componente AppCards
+@mixin grid-item-style($background-color, $hover-color) {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-color: $background-color;
+		z-index: 0; // Rendere ::before visibile sopra l'immagine
+		transition: background-color 250ms;
+	}
+
+	&:hover::before {
+		background-color: $hover-color;
+	}
+}

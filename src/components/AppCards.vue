@@ -6,7 +6,7 @@ export default {
 
 	props: {
 		cards: {
-			type: Object,
+			type: Array,
 			required: true,
 		},
 	},
@@ -50,10 +50,10 @@ export default {
 						)})`,
 					}"></div>
 				<p class="title">{{ card.title }}</p>
-				<p class="subtitle" :class="{'text-right': card.justify === 'right'}">
+				<p class="subtitle">
 					{{ card.subtitle }}
 				</p>
-				<p class="text" :class="{'text-right': card.justify === 'right'}">
+				<p class="text">
 					{{ card.text }}
 				</p>
 				<p class="index">0{{ card.id }}</p>
@@ -91,6 +91,16 @@ export default {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	grid-template-rows: auto 40% 3rem auto;
+	z-index: 1;
+	transition: box-shadow 300ms;
+
+	.title,
+	.subtitle,
+	.text,
+	.index {
+		z-index: 1;
+		pointer-events: none;
+	}
 
 	.title {
 		grid-area: title;
@@ -116,10 +126,6 @@ export default {
 		letter-spacing: 1px;
 	}
 
-	.text-right > .text {
-		text-align: right;
-	}
-
 	.index {
 		grid-area: index;
 		font-size: 7rem;
@@ -142,22 +148,7 @@ export default {
 		". . . . . text text text";
 
 	.background-image {
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-		background-size: cover;
-	}
-
-	.background-image::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background-color: rgba(0, 0, 0, 0.4);
-		transition: background-color 250ms;
-	}
-
-	&:hover .background-image::before {
-		background-color: rgba(0, 0, 0, 0.7);
+		@include grid-item-style(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
 	}
 }
 
@@ -171,22 +162,7 @@ export default {
 		"text text text text text . . .";
 
 	.background-image {
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-		background-size: cover;
-	}
-
-	.background-image::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background-color: rgba(0, 0, 0, 0.2);
-		transition: background-color 250ms;
-	}
-
-	&:hover .background-image::before {
-		background-color: rgba(0, 0, 0, 0.5);
+		@include grid-item-style(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
 	}
 }
 
@@ -218,10 +194,6 @@ export default {
 	.text {
 		color: $textColor;
 	}
-
-	&:hover {
-		box-shadow: 0 0 8px 5px rgba(0, 0, 0, 0.7);
-	}
 }
 
 .grid-area-4 {
@@ -234,22 +206,7 @@ export default {
 		"text text text . . . . .";
 
 	.background-image {
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-		background-size: cover;
-	}
-
-	.background-image::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background-color: rgba(0, 0, 0, 0.2);
-		transition: background-color 250ms;
-	}
-
-	&:hover .background-image::before {
-		background-color: rgba(0, 0, 0, 0.5);
+		@include grid-item-style(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
 	}
 }
 </style>
