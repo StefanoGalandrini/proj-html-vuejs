@@ -1,77 +1,79 @@
 <script>
-import {store} from "../store";
+import {Splide, SplideSlide} from "@splidejs/vue-splide";
 
 export default {
 	data() {
 		return {
-			store,
-			currentImage: 0,
-			selectedImage: null,
-			imagesShown: 2,
-			autoScroll: true,
-			autoScrollInterval: null,
+			intervalId: null,
 		};
 	},
 
-	methods: {
-		nextImage() {
-			if (
-				this.currentImage <
-				this.store.carouselImages.length - this.imagesShown
-			) {
-				this.currentImage++;
-			} else {
-				this.currentImage = 0;
-			}
+	components: {
+		Splide,
+		SplideSlide,
+	},
+
+	props: {
+		carouselImages: {
+			type: Array,
+			required: true,
 		},
 
-		prevImage() {
-			if (this.currentImage > 0) {
-				this.currentImage--;
-			} else {
-				this.currentImage = this.store.carouselImages.length - this.imagesShown;
-			}
+		imagesShown: {
+			type: Number,
+			required: true,
 		},
 
-		toggleSelectedImage(index) {
-			if (this.selectedImage === index) {
-				this.selectedImage = null;
-			} else {
-				this.selectedImage = index;
-			}
+		carouselHeight: {
+			type: String,
+			required: true,
 		},
 
-		showImageText(index) {
-			this.selectedImage = index;
-			this.stopAutoScroll();
+		carouselWidth: {
+			type: String,
+			required: true,
 		},
 
-		hideImageText() {
-			this.selectedImage = null;
-			this.startAutoScroll();
+		gridColumns: {
+			type: String,
+			required: true,
 		},
 
-		startAutoScroll() {
-			this.autoScroll = true;
-			this.autoScrollInterval = setInterval(() => {
-				if (this.autoScroll) {
-					this.nextImage();
-				}
-			}, 2000);
+		gridGap: {
+			type: String,
+			required: true,
 		},
 
-		stopAutoScroll() {
-			this.autoScroll = false;
-			clearInterval(this.autoScrollInterval);
+		align: {
+			type: String,
+			required: true,
 		},
 	},
 
-	computed: {
-		visibleImages() {
-			return this.store.carouselImages.slice(
-				this.currentImage,
-				this.currentImage + this.imagesShown,
-			);
+	methods: {
+		getUrl(image) {
+			return `/src/assets/images/${image.src}`;
+		},
+
+		nextImage() {
+			this.$refs.splide.splide.go("+1");
+		},
+
+		prevImage() {
+			this.$refs.splide.splide.go("-1");
+		},
+
+		stopAutoScroll() {
+			if (this.intervalId !== null) {
+				clearInterval(this.intervalId);
+				this.intervalId = null;
+			}
+		},
+
+		startAutoScroll() {
+			if (this.intervalId === null) {
+				this.intervalId = setInterval(this.nextImage, 2000);
+			}
 		},
 	},
 
@@ -83,7 +85,13 @@ export default {
 
 <template>
 	<section id="shop">
-		<div class="wrapper">
+		<div
+			class="wrapper"
+			:style="{
+				'--grid-columns': gridColumns,
+				'--grid-gap': gridGap,
+				'--align': align,
+			}">
 			<!-- Description Text -->
 			<div class="container">
 				<h4 class="subtitle">Our products</h4>
@@ -94,40 +102,46 @@ export default {
 				<button class="dark">Start Shopping</button>
 			</div>
 
-			<div>
-				<div
-					class="carousel-container"
-					:style="{'--images-shown': imagesShown}">
-					<div class="carousel-images">
-						<div
-							v-for="(image, index) in visibleImages"
-							:key="index"
-							class="shown">
-							<img
-								:src="image.src"
-								:alt="image.name"
-								@mouseover="showImageText(index + currentImage)"
-								@mouseleave="hideImageText" />
-							<div
-								v-if="selectedImage === index + currentImage"
-								class="image-text">
-								<p class="name">{{ image.name }}</p>
-								<p class="type">Cookies, Pastries</p>
-								<p class="price">{{ image.price }}</p>
-							</div>
-						</div>
-					</div>
-					<div
+			<!-- Carousel -->
+			<div class="carousel-container">
+				<Splide
+					ref="splide"
+					class="carousel"
+					:options="{
+						type: 'loop',
+						perPage: imagesShown,
+						perMove: 1,
+						speed: 800,
+						gap: '1rem',
+						arrows: false,
+						pagination: false,
+						interval: 3000,
+					}">
+					<SplideSlide
+						class="carousel-images"
+						v-for="(image, index) in carouselImages"
+						:key="index"
 						@mouseover="stopAutoScroll"
-						@mouseleave="startAutoScroll"
-						class="carousel-arrows">
-						<font-awesome-icon
-							icon="fa-solid fa-chevron-left"
-							@click="prevImage" />
-						<font-awesome-icon
-							icon="fa-solid fa-chevron-right"
-							@click="nextImage" />
-					</div>
+						@mouseleave="startAutoScroll">
+						<img :src="getUrl(image)" :alt="image.name" />
+						<div class="image-text">
+							<h3 class="name">{{ image.name }}</h3>
+							<p class="type">Delicious Pastry</p>
+							<p class="price">{{ image.price }}</p>
+						</div>
+					</SplideSlide>
+				</Splide>
+
+				<div
+					@mouseover="stopAutoScroll"
+					@mouseleave="startAutoScroll"
+					class="carousel-arrows">
+					<font-awesome-icon
+						icon="fa-solid fa-chevron-left"
+						@click="prevImage" />
+					<font-awesome-icon
+						icon="fa-solid fa-chevron-right"
+						@click="nextImage" />
 				</div>
 			</div>
 		</div>
@@ -143,18 +157,31 @@ export default {
 	height: 75vh;
 	margin: 6rem auto;
 	display: grid;
-	grid-template-columns: 4fr 8fr;
+	align-content: center;
+	grid-template-columns: var(--grid-columns);
 	grid-template-rows: auto;
-	grid-template-areas: "text carousel";
-	gap: 5rem;
+	grid-template-areas: "txt carousel";
+	gap: var(--grid-gap);
+	text-align: var(--align);
 }
 
 @include text-container-styles(0.7rem, 2.1rem, 0, $textColor, $mainColor);
 
+.container {
+	grid-area: txt;
+}
+
 .carousel-container {
+	grid-area: carousel;
 	position: relative;
 	width: 100%;
 	height: 100%;
+	align-self: center;
+	overflow: hidden;
+}
+
+.splide__slide {
+	max-width: 100%;
 }
 
 .carousel-images {
@@ -163,47 +190,54 @@ export default {
 	display: flex;
 	flex-wrap: nowrap;
 	gap: 1rem;
+	position: relative;
+
+	.image-text {
+		position: absolute;
+		z-index: 5;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+		color: white;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 300ms ease-in-out;
+	}
+
+	&:hover .image-text {
+		opacity: 1;
+	}
 }
 
-.carousel-images div.shown {
-	flex: 0 0 50%;
-	position: relative;
+.name {
+	font-family: "Source Serif Pro";
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.5rem;
+}
+
+.type {
+	font-size: 0.8rem;
+	line-height: 2rem;
+}
+
+.price {
+	font-size: 1.6rem;
+	font-weight: 500;
 }
 
 .carousel-images img {
-	width: calc(100% - 1rem);
-	height: 100%;
+	display: block;
+	width: 100%;
+	height: 85%;
 	object-fit: cover;
 	filter: brightness(0.9);
+	margin-bottom: 1rem;
+	transition: all 300ms;
 
 	&:hover {
-		filter: brightness(0.5);
-	}
-}
-
-.image-text {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
-	color: white;
-
-	.name {
-		font-family: "Source Serif Pro";
-		font-size: 1.5rem;
-		font-weight: 700;
-		line-height: 1.5rem;
-	}
-
-	.type {
-		font-size: 0.8rem;
-		line-height: 2rem;
-	}
-
-	.price {
-		font-size: 1.6rem;
-		font-weight: 500;
+		filter: brightness(0.6);
 	}
 }
 

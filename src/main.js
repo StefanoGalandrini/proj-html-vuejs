@@ -22,6 +22,9 @@ import {
 	faPinterestP,
 } from "@fortawesome/free-brands-svg-icons";
 
+/* Library for Carousels */
+import "@splidejs/vue-splide/css";
+
 /* add icons to the library */
 library.add(
 	faCartShopping,

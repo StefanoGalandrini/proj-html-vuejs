@@ -1,10 +1,7 @@
 <script>
-import {store} from "../store";
-
 export default {
 	data() {
 		return {
-			store,
 			currentImage: 0,
 			selectedImage: null,
 			imagesShown: 4,
@@ -14,12 +11,16 @@ export default {
 		};
 	},
 
+	props: {
+		carouselImages: {
+			type: Array,
+			required: true,
+		},
+	},
+
 	methods: {
 		nextImage() {
-			if (
-				this.currentImage <
-				this.store.carouselImages.length - this.imagesShown
-			) {
+			if (this.currentImage < this.carouselImages.length - this.imagesShown) {
 				this.currentImage++;
 			} else {
 				this.currentImage = 0;
@@ -30,7 +31,7 @@ export default {
 			if (this.currentImage > 0) {
 				this.currentImage--;
 			} else {
-				this.currentImage = this.store.carouselImages.length - this.imagesShown;
+				this.currentImage = this.carouselImages.length - this.imagesShown;
 			}
 		},
 
@@ -65,11 +66,15 @@ export default {
 			this.autoScroll = false;
 			clearInterval(this.autoScrollInterval);
 		},
+
+		getUrl(image) {
+			return `/src/assets/images/${image.src}`;
+		},
 	},
 
 	computed: {
 		visibleImages() {
-			return this.store.carouselImages.slice(
+			return this.carouselImages.slice(
 				this.currentImage,
 				this.currentImage + this.imagesShown,
 			);
@@ -105,7 +110,7 @@ export default {
 							:key="index"
 							class="shown">
 							<img
-								:src="image.src"
+								:src="getUrl(image)"
 								:alt="image.name"
 								@mouseover="showImageText(index + currentImage)"
 								@mouseleave="hideImageText" />

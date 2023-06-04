@@ -29,6 +29,10 @@ export default {
 	},
 
 	computed: {
+		carouselImages() {
+			return store.carouselImages;
+		},
+
 		cardsArray() {
 			return store.cardsArray;
 		},
@@ -50,9 +54,16 @@ export default {
 
 <template>
 	<AppHeader />
-	<AppCarousel />
+	<AppCarousel
+		:carouselImages="carouselImages"
+		:imagesShown="2"
+		:carouselHeight="'75vh'"
+		:carouselWidth="'100%'"
+		:gridColumns="'1fr 2fr'"
+		:gridGap="'5rem'"
+		:align="'left'" />
 	<AppMoments />
-	<AppCarouselSmall />
+	<AppCarouselSmall :carouselImages="carouselImages" />
 	<AppCards :cards="cardsArray" />
 
 	<AppLocations :locations="locations" />
