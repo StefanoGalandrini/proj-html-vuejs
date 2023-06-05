@@ -194,7 +194,6 @@ export default {
 
 	.image-text {
 		position: absolute;
-		z-index: 5;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
@@ -208,39 +207,37 @@ export default {
 	&:hover .image-text {
 		opacity: 1;
 	}
-}
 
-.name {
-	font-family: "Source Serif Pro";
-	font-size: 1.5rem;
-	font-weight: 700;
-	line-height: 1.5rem;
-}
+	.name {
+		font-family: "Source Serif Pro";
+		font-size: 1.5rem;
+		font-weight: 700;
+		line-height: 1.5rem;
+	}
 
-.type {
-	font-size: 0.8rem;
-	line-height: 2rem;
-}
+	.type {
+		font-size: 0.8rem;
+		line-height: 2rem;
+	}
 
-.price {
-	font-size: 1.6rem;
-	font-weight: 500;
-}
+	.price {
+		font-size: 1.6rem;
+		font-weight: 500;
+	}
 
-.carousel-images img {
-	display: block;
-	width: 100%;
-	height: 85%;
-	object-fit: cover;
-	filter: brightness(0.9);
-	margin-bottom: 1rem;
-	transition: all 300ms;
+	img {
+		display: block;
+		width: 100%;
+		object-fit: cover;
+		filter: brightness(0.9);
+		margin-bottom: 1rem;
+		transition: all 300ms;
 
-	&:hover {
-		filter: brightness(0.6);
+		&:hover {
+			filter: brightness(0.6);
+		}
 	}
 }
-
 .carousel-arrows {
 	position: absolute;
 	top: 50%;

@@ -54,6 +54,7 @@ export default {
 
 <template>
 	<AppHeader />
+
 	<AppCarousel
 		:carouselImages="carouselImages"
 		:imagesShown="2"
@@ -62,8 +63,19 @@ export default {
 		:gridColumns="'1fr 2fr'"
 		:gridGap="'5rem'"
 		:align="'left'" />
+
 	<AppMoments />
-	<AppCarouselSmall :carouselImages="carouselImages" />
+
+	<AppCarouselSmall
+		:carouselImages="carouselImages"
+		:imagesShown="4"
+		:carouselHeight="'75vh'"
+		:carouselWidth="'100%'"
+		:gridColumns="'1fr 3fr'"
+		:gridGap="'3rem'"
+		:align="'center'" />
+	/>
+
 	<AppCards :cards="cardsArray" />
 
 	<AppLocations :locations="locations" />
